@@ -13,56 +13,13 @@
   <meta name="keywords" content="Abequar, gestão imobiliária, hotelaria, soluções empresariais">
   <meta name="author" content="Abequar LTDA">
 
-  <!-- Open Graph Protocol (OGP) para Redes Sociais -->
-  <meta property="og:type" content="business.business" />
-  <meta property="og:title" content="Abequar LTDA - Gestão Imobiliária e Hotelaria" />
-  <meta property="og:description" content="Especializada em gestão imobiliária e soluções de hotelaria para empresas." />
-  <meta property="og:url" content="https://abequar.com.br" />
-  <meta property="og:image" content="https://i.ibb.co/Byr83Nt/logo-Abequar.png" />
-
-  <!-- Business Contact Information -->
-  <meta property="business:contact_data:street_address" content="Rua Antônio Carlos, 681 - Q12" />
-  <meta property="business:contact_data:locality" content="Consolação" />
-  <meta property="business:contact_data:region" content="SP" />
-  <meta property="business:contact_data:postal_code" content="01309-011" />
-  <meta property="business:contact_data:country_name" content="Brasil" />
-  <meta property="business:contact_data:email" content="email@abequar.com.br" />
-  <meta property="business:contact_data:phone_number" content="+55 11 99105-1388" />
-  <meta property="business:contact_data:website" content="https://abequar.com.br" />
-
-  <!-- JSON-LD Dados Estruturados -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Abequar LTDA",
-    "description": "Especializada em gestão imobiliária e soluções de hotelaria para empresas.",
-    "url": "https://abequar.com.br",
-    "logo": "https://i.ibb.co/Byr83Nt/logo-Abequar.png",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Rua Antônio Carlos, 681 - Q12",
-      "addressLocality": "Consolação",
-      "addressRegion": "SP",
-      "postalCode": "01309-011",
-      "addressCountry": "BR"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+55 11 99105-1388",
-      "contactType": "Customer Service",
-      "email": "email@abequar.com.br"
-    }
-  }
-  </script>
-
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
     .honeycomb {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
       margin-top: 40px;
     }
@@ -87,15 +44,6 @@
       box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     }
 
-    .honeycomb-item.no-hover:hover {
-      transform: none;
-      box-shadow: none;
-    }
-
-    .honeycomb-item.no-hover {
-      pointer-events: none; /* Remove qualquer interação do mouse */
-    }
-
     footer {
       margin-top: 40px;
       padding: 20px 0;
@@ -103,35 +51,17 @@
       color: white;
     }
 
-    footer .col:last-child {
-      text-align: right;
+    footer .about {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      cursor: pointer;
+      color: #f8f9fa;
+      text-decoration: underline;
     }
 
-    /* Responsividade do modal */
-    .modal-body {
-      position: relative;
-      height: 600px;
-    }
-
-    #loadingSpinner {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #calendarIframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
+    .modal-backdrop.show {
+      opacity: 0.8;
     }
   </style>
 </head>
@@ -165,61 +95,93 @@
         <p>WhatsApp</p>
       </a>
 
-      <!-- Blank 1 -->
-      <div class="honeycomb-item no-hover">
-        <!-- Item vazio -->
-      </div>
-
-      <!-- Blank 2 -->
-      <div class="honeycomb-item no-hover">
-        <!-- Item vazio -->
-      </div>
-
-      <!-- Configuração -->
+      <!-- Sistema -->
       <a href="#" class="honeycomb-item" data-bs-toggle="modal" data-bs-target="#loginModal">
-        <img src="https://cdn-icons-png.flaticon.com/512/4149/4149678.png" alt="Configuração" width="50">
-        <p>Configuração</p>
+        <img src="https://cdn-icons-png.flaticon.com/512/4149/4149678.png" alt="Sistema" width="50">
+        <p>Sistema</p>
       </a>
     </div>
   </main>
 
+  <!-- Footer -->
+  <footer class="container-fluid">
+    <div class="row">
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col">
+        <p>Abequar Ltda - SP / SP</p>
+      </div>
+    </div>
+    <div class="about" data-bs-toggle="modal" data-bs-target="#aboutModal">Sobre</div>
+  </footer>
 
-    <!-- Footer -->
-    <footer class="container-fluid">
-      <div class="row">
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col">
-          <p>Abequar Ltda - SP / SP</p>
+  <!-- Modal de Login -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-      </div>
-    </footer>
-
-<!-- Modal de Agendamento -->
-<div class="modal fade" id="scheduleModal" tabindex="-1" aria-labelledby="scheduleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="scheduleModalLabel">Agendar Reunião</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <!-- Iframe do Google Calendar -->
-        <iframe id="calendarIframe" 
-                src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ18aGkjEK972AETcQB3x-HTKINVcE3tdmzldC9aH8Zq4yIdb_sHUU-yTP_HQYeF7kCg_CqKmu_G?gv=true"
-                style="border: 0;" 
-                width="100%" 
-                height="600" 
-                frameborder="0">
-        </iframe>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="username" class="form-label">Usuário</label>
+              <input type="text" class="form-control" id="username">
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Senha</label>
+              <input type="password" class="form-control" id="password">
+            </div>
+            <button type="button" class="btn btn-primary w-100" onclick="login()">Entrar</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
+  <!-- Modal Sobre -->
+  <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="aboutModalLabel">Sobre a Empresa</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Abequar LTDA é especializada em gestão imobiliária e soluções de hotelaria para empresas. Oferecemos serviços personalizados para atender às suas necessidades.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <!-- Modal de Agendamento -->
+  <div class="modal fade" id="scheduleModal" tabindex="-1" aria-labelledby="scheduleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="scheduleModalLabel">Agendar Reunião</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <iframe id="calendarIframe" 
+                  src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ18aGkjEK972AETcQB3x-HTKINVcE3tdmzldC9aH8Zq4yIdb_sHUU-yTP_HQYeF7kCg_CqKmu_G?gv=true"
+                  style="border: 0;" 
+                  width="100%" 
+                  height="600" 
+                  frameborder="0">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!-- Bootstrap JS -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function login() {
+      alert('Usuário não encontrado');
+    }
+  </script>
 </body>
 </html>
